@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="row" style="margin:auto; justify-content: center">
+<ul>
+    
+    <li class="list-group-item active">SENT MESSAGES</li>
+    <ul class="list-group">    
+        <div *ngFor="let msg of sentmessages">
+                <!-- | received:receiverid -->
+                <!-- | sent:senderid -->
+                    <li class="list-group-item">
+                    <span class="badge badge-light">Sent to : {{msg.uname}}</span>
+                    <p>{{msg.msg}}</p>
+            </li>
+        </div>
+    </ul>
+    <li class="list-group-item active">RECEIVED MESSAGES</li>
+    <ul class="list-group">    
+            <div *ngFor="let msg of recmessages">
+                    <!-- | received:receiverid -->
+                    <!-- | sent:senderid -->
+                        <li class="list-group-item">
+                        <span class="badge badge-light">Received from : {{msg.uname}}</span>
+                        <p>{{msg.msg}}</p>
+                </li>
+            </div>
+        </ul>
+    </ul>  
+</div>
+
+<app-footer></app-footer>

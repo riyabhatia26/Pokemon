@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<br>
+<!-- <a routerLink="/listings">Listings</a> -->
+
+<!-- 
+<form [formGroup]="angularForm">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+</form> -->
+<div class="jumbotron" style="background: white">
+  <div class="container">
+    <div class="row" style="margin:auto">
+      <div class="col-md-6 offset-md-3">
+        
+          <div class = "container-fluid">
+            <div class="d-flex justify-content-around">
+              <h2>SignUp Form</h2>
+            </div>
+            <form #userFrom="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+
+              <!-- {{userFrom.value | json}} -->
+
+              <div class="form-group">
+                <label class="center-block">Name:</label>
+                  <input type="text" #name="ngModel" required 
+                  [class.is-invalid]="name.invalid && name.touched" class="form-control" name="name" [(ngModel)]="userModel.name">
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required.</small>
+              </div>
+              <div class="form-group">
+                <label class="center-block">Email:</label>
+                  <input type="email" #email="ngModel" required 
+                  [class.is-invalid]="email.invalid && email.touched" class="form-control" name="email" [(ngModel)]="userModel.email">
+                  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required.</small>
+              </div>
+
+              <div class="form-group">
+                <label class="center-block">Password:</label>
+                  <input type="password" #password="ngModel" required 
+                  [class.is-invalid]="password.invalid && password.touched" class="form-control" name="password" [(ngModel)]="userModel.password">
+                  <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required.</small>
+              </div>
+
+              <div class="form-group">
+                <label class="center-block">College:</label>
+                  <input type="text" #college="ngModel" required 
+                  [class.is-invalid]="college.invalid && college.touched" class="form-control" name="college" [(ngModel)]="userModel.college">
+                  <small class="text-danger" [class.d-none]="college.valid || college.untouched">College is required.</small>
+              </div>
+
+              <div class="form-group">
+                <label class="center-block">Address:</label>
+                  <input type="address" #address="ngModel" required 
+                  [class.is-invalid]="address.invalid && address.touched" class="form-control" name="address" [(ngModel)]="userModel.address">
+                  <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is required.</small>
+              </div>
+
+          <!-- 
+              <div ngModelGroup="address">
+                <div class="form-group">
+                  <label>HouseNumber</label>
+                  <input type="text" class="form-control" name="housenumber" ngModel>
+                </div>
+                <div class="form-group">
+                  <label>Street</label>
+                  <input type="text" class="form-control" name="street" ngModel>
+                </div>
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" name="city" ngModel>
+                </div>
+                <div class="form-group">
+                  <label>PostalCode</label>
+                  <input type="text" class="form-control" name="postalcode" ngModel>
+                </div>
+              </div> -->
+
+
+
+              <div class="form-group">
+                <label class="center-block">Contact:</label>
+                  <input type="tel" #contact="ngModel" pattern="\d{10}$" required 
+                  [class.is-invalid]="contact.invalid && contact.touched" class="form-control" name="contact" [(ngModel)]="userModel.contact">
+                  <small class="text-danger" [class.d-none]="contact.valid || contact.untouched">Phone number is required and must be 10 digits.</small>
+              </div>
+              <div class="d-flex justify-content-around">
+                <button [disabled]="userFrom.form.invalid" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</button>
+              </div>
+              <br>
+              <div class="d-flex justify-content-around">
+                  <span> Already a registered user?
+                    <button routerLink="/home" class="btn btn-link">  <i class="fas fa-sign-in-alt"></i> LogIn</button>
+                  </span>
+              </div>
+
+            </form>
+
+            <div class="alert alert-danger" *ngIf="errorMsg">
+                {{errorMsg}}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<app-footer></app-footer>

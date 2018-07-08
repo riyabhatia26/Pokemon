@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron" style="background: white">
+    <div class="container">
+      <div class="row" style="margin:auto">
+        <div class="col-md-6 offset-md-3">
+            
+          <div class = "container-fluid">
+              <h2>Book Details</h2>
+
+              <form #listingForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+              <!-- {{listingForm.value | json}} -->
+              
+                <div class="form-group">
+                  <label class="center-block">Book Name:</label>
+                    <input type="text" #name="ngModel" required 
+                    [class.is-invalid]="name.invalid && name.touched" class="form-control" name="name" [(ngModel)]="listingModel.name">
+                  <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required.</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="center-block">Author Name:</label>
+                      <input type="text" #author="ngModel" required 
+                      [class.is-invalid]="author.invalid && author.touched" class="form-control" name="author" [(ngModel)]="listingModel.author">
+                    <small class="text-danger" [class.d-none]="author.valid || author.untouched">Author Name is required.</small>        
+                </div>
+
+                <div class="form-group">
+                    <label class="center-block">Image:</label>
+                      <input type="text" #image="ngModel" required 
+                      [class.is-invalid]="image.invalid && image.touched" class="form-control" name="image" [(ngModel)]="listingModel.image">
+                    <small class="text-danger" [class.d-none]="image.valid || image.untouched">Please enter image URL.</small>        
+                </div>
+
+                <div class="form-group">
+                    <label class="center-block">Price:</label>
+                      <input type="text" #price="ngModel" required 
+                      [class.is-invalid]="price.invalid && price.touched" class="form-control" name="price" [(ngModel)]="listingModel.price">
+                    <small class="text-danger" [class.d-none]="price.valid || price.untouched">Price is required</small>        
+                </div>
+
+              
+                <!-- <div class="form-group">
+                    <select class="custom-select">
+                      <option selected>Condition</option>
+                      <option *ngFor="let value of cndition">{{value}}</option>
+                    </select>
+                </div> -->
+
+                <div class="form-group mb-3">
+                    <label class="center-block">Condition:</label>
+                      <div class="form-check">
+                        <input class="form-check-input" #cndition="ngModel" required type="radio" name="cndition" value="New" [(ngModel)]="listingModel.cndition">
+                        <label class="form-check-label">New</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" #cndition="ngModel" required type="radio" name="cndition" value="Almost New" [(ngModel)]="listingModel.cndition">
+                        <label class="form-check-label">Almost New</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" #cndition="ngModel" required type="radio" name="cndition" value="Slightly Damaged" [(ngModel)]="listingModel.cndition">
+                        <label class="form-check-label">Slightly Damaged</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" #cndition="ngModel" required type="radio" name="cndition" value="Worn" [(ngModel)]="listingModel.cndition">
+                        <label class="form-check-label">Worn</label>
+                      </div>
+                    <small class="text-danger" [class.d-none]="cndition.valid || cndition.untouched">Please specify book condition.</small>
+                </div>
+
+              <button  [disabled]="listingFrom.form.invalid" class="btn btn-primary">Add</button>
+            </form>
+
+            <div class="alert alert-danger" *ngIf="errorMsg">
+                {{errorMsg}}
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<app-footer></app-footer>

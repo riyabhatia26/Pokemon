@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<br>
+<!-- <div style="display: inline;"> -->
+  <nav aria-label="breadcrumb">
+    <div class="justify-content-around">
+    <div style="display: inline;">
+    <div class="float-left">
+    <span> Search by name : 
+    <input type="text" [(ngModel)]="filterName" placeholder="Book Name">
+    </span>
+    </div>
+    <div class="float-right">
+        <span> Filter by price : 
+        <input type="text" [(ngModel)]="filterMin" placeholder="Mininum Price" >
+        <input type="text" [(ngModel)]="filterMax" placeholder="Maximum Price">
+        </span>
+    </div>
+    </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="justify-content-around">
+    <div style="display: inline">
+    <div class="float-left">
+    <span> Search by author : 
+    <input type="text" [(ngModel)]="filterAuthor" placeholder="Author Name">
+    </span>
+    </div>
+    <div class="float-right">
+        <!-- <span>
+          <label>Filter by condition:</label>
+          <select class="form-control" id="sel1"  [(ngModel)]="filterCond">
+            <option>New</option>
+            <option>Almost New</option>
+            <option>Slightly Damaged</option>
+            <option>Worn</option>
+            <option>None</option>
+          </select>
+        </span> -->
+
+    <span> Filter by condition : 
+    <input type="text" [(ngModel)]="filterCond" placeholder="Eg: New">
+    </span>
+
+    </div>
+    </div>
+    </div>
+  </nav>
+
+<br>
+<!-- </div> -->
+<hr/>
+
+<div class="row" style="margin:auto; justify-content: center">
+    <div *ngFor="let item of listing | name:filterName:'bname' | author:filterAuthor:'author' | cond:filterCond:'cndition' | price:filterMin:'price' | pricee:filterMax:'price'" class="col-sm-6 col-lg-4 col-xs-12 col-md-6 bi">
+      <!-- | cond:filterCond:'cndition' -->
+      <!-- | name:filterName:'bname'  -->
+      <!-- | author:filterAuthor:'author' -->
+      <div style="justify-content: center">
+        <div class="card-group">
+          <div class="card-deck">
+            <div class="card">
+              <img class="card-block" height="375px" width="280px" bind-src="item.image" alt="Card image cap">
+              <div class="card-body flex-fill">
+                <h5 class="card-title">{{item.bname}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{item.author}}</h6>
+                <p class="card-text">Price : {{item.price}}</p>
+                <p class="card-text">Condition : {{item.cndition}}</p>
+                <button (click)="onSelect(item)" [class.selected]="isSelected(item)"><i class="fas fa-info-circle"></i> Details</button>
+                <button (click)="addinwishlist(item)" class="card-link"><i class="far fa-grin-hearts"></i> Add to wishlist</button>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">*Terms and Conditions apply <i class="far fa-check-square"></i></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

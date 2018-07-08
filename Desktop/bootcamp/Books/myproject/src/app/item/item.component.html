@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+
+<!-- <p>
+  {{itemId}}
+</p> -->
+
+<!-- <div>
+  <button (click)="goBack()"><i class="fas fa-backward"></i> Back</button>
+</div> -->
+
+<!-- 
+<a (click)="goPrev()">Previous</a>
+<a (click)="goNext()">Next</a>
+ -->
+
+
+<br>
+  <div class="row" style="margin:auto; justify-content: center">
+    <div class="colspan=8" style="align-content: center" *ngFor="let item of detail">
+
+
+      <div class="card">
+            <img class="card-img-top" height="375px" width="280px" bind-src="item.image" alt="Card image cap">
+            <div class="card-body">
+              <div class="d-flex justify-content-around">
+                <h4 class="card-title">Book Name : {{item.bname}}</h4>
+              </div>
+              <div class="d-flex justify-content-around">
+                <h6 class="card-subtitle mb-2 text-muted">by author : {{item.author}}</h6>
+              </div>
+              <div class="d-flex justify-content-around" style="display: -webkit-inline-flex">
+                <span class="card-text"><span style="font-weight:600">Price : </span>{{item.price}} </span>
+                <span class="card-text"><span style="font-weight:600">Condition : </span>{{item.cndition}}</span>
+              </div>
+              <br>
+              <div class="d-flex justify-content-around">
+                <button (click)="showCnt()"><i class="fas fa-mobile-alt"></i> View Seller Details</button>
+                <button (click)="addinwishlist(item)" class="card-link"><i class="far fa-grin-hearts"></i> Add to wishlist</button>
+              </div>
+              <br>
+              <div style="align-content: center">
+                <span *ngIf="viewSeller">
+                <div class="d-flex justify-content-around">
+                    <h5>Seller Details:</h5>
+                  </div><div class="d-flex justify-content-around">
+                    <span class="card-text"><span style="font-weight:600">Name : </span>{{item.uname}}</span>
+                  <!-- </div><div class="d-flex justify-content-around"> -->
+                    <span class="card-text"><span style="font-weight:600">Email : </span>{{item.email}}</span>
+                  </div><div class="d-flex justify-content-around">
+                    <span class="card-text"><span style="font-weight:600">College : </span>{{item.college}}</span>
+                  <!-- </div><div class="d-flex justify-content-around"> -->
+                    <span class="card-text"><span style="font-weight:600">Contact : </span>{{item.contact}}</span>
+                </div>
+                <br>
+                </span>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                  <input type="text" [(ngModel)]="input">
+                  <button (click)="msg(item)"><i class="fas fa-comment-alt"></i> Send Message</button>
+              </div>
+
+
+              <br>
+              <div class="d-flex justify-content-around">
+                  <br>
+                      <small class="text-muted">*Terms and Conditions apply <i class="far fa-check-square"></i></small>
+              </div>
+            </div>
+          </div>
+
+      <!-- <div style="justify-content: center">
+        <div class="card-group">
+            <div class="card-deck">
+              <div class="card">
+                <div class="pull-left">
+                    <img class="card-block" height="375px" width="280px" bind-src="item.image" alt="Card image cap">
+                </div>
+                <div class="pull-right">
+                      <div class="card-body flex-fill">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.author}}</h6>
+                        <p class="card-text">Price : {{item.price}}</p>
+                        <p class="card-text">Condition : {{item.cndition}}</p>
+                        <button (click)="onSelect(item)" [class.selected]="isSelected(item)">Details</button>
+                                <a href="/listings/{{item.id}}" class="card-link">Details</a>
+                        <button href="#" class="card-link">Add to wishlist</button>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">*Terms and Conditions apply</small>
+                      </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!-- </li>
+</ul> -->
+
+
+<!-- 
+<p>
+  <button (click)="showOvv()">Overview</button>
+  <button (click)="showCnt()">Contact</button>
+</p> -->
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

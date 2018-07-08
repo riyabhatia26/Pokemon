@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import './styles/bootstrap-3.3.7-dist/css/bootstrap.min.css'; */
+
+li.selected{
+    color:red;
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .card-img-top {
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-deck > .card
+{
+    width: 29%;
+    flex-wrap: wrap;
+    flex: initial; 
+} */
+
+
+footer{
+    bottom: 0;
+    position: static;
+    /* position: absolute; */
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    background-color:lightblue;
+
+}
+
+
+
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+
+.social-circle li a {
+    color: black;
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}

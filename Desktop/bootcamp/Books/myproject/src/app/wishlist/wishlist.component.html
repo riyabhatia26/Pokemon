@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="row" style="margin:auto; justify-content: center">
+    <div *ngFor="let item of wishlist" class="col-sm-6 col-lg-4 col-xs-12 col-md-6 bi">
+        <div style="justify-content: center">
+            <div class="card-group">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-block" height="375px" width="280px" bind-src="item.image" alt="Card image cap">
+                        <div class="card-body flex-fill">
+                            <h5 class="card-title">{{item.bname}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{item.author}}</h6>
+                            <p class="card-text">Price : {{item.price}}</p>
+                            <p class="card-text">Condition : {{item.cndition}}</p>
+                            <button (click)="isSelected(item)"><i class="fas fa-info-circle"></i> Details</button>
+                            <!-- <button (click)="unwish(item)" class="card-link"><i class="far fa-grin-hearts"></i>Remove from wishlist</button> -->
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">*Terms and Conditions apply <i class="far fa-check-square"></i></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

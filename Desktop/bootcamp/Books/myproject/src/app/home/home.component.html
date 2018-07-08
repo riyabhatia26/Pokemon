@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<br>
+<!-- <a routerLink="/listings">Listings</a> -->
+
+<div class="jumbotron" style="background: white">
+    <div class="container">
+      <div class="row" style="margin:auto">
+        <div class="col-md-6 offset-md-3">
+              
+          <div class = "container-fluid">
+            <h2>Sign Up / Log In</h2>
+
+            <form #loginForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+
+              <!-- {{loginForm.value | json}} -->
+
+              <div class="form-group">
+                <label class="center-block">Email:</label>
+                  <input type="email" #email="ngModel" required 
+                  [class.is-invalid]="email.invalid && email.touched" class="form-control" name="email" [(ngModel)]="loginModel.email">
+                  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required.</small>
+              </div>
+
+
+              <div class="form-group">
+                <label class="center-block">Password:</label>
+                  <input type="password" #password="ngModel" required 
+                  [class.is-invalid]="password.invalid && password.touched" class="form-control" name="password" [(ngModel)]="loginModel.password">
+                  <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required.</small>
+              </div>
+              <div class="d-flex justify-content-around">
+                <button [disabled]="loginFrom.form.invalid" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> LogIn</button>
+              </div>
+              <br>
+              <div class="d-flex justify-content-around">
+                <span> New around here?
+              <button routerLink="/signup" class="btn btn-link">  <i class="fas fa-user-plus"></i> SignUp</button>
+            </span>
+              </div>
+            </form>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<app-footer></app-footer>
